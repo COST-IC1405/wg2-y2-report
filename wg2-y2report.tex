@@ -1,0 +1,101 @@
+\documentclass[a4paper,oneside]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{courier}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+%\title{COST Action IC1405\\Reversible computation\\ {\large extending horizons of computing \\[3ex] %\Large %\\ Working Group 2 - Software and Systems \\ Year 2 report}
+\title{COST Action IC1405\\Reversible Computation \\ Extending Horizons of Computing \\[3ex]
+ Working Group 2 - Software and Systems \\[3ex] Year 2 report }
+%\author{Editors: %
+%Contributors:abs %
+%}
+\begin{document}
+\thispagestyle{empty}
+\begin{center}
+\begin{minipage}{0.75\linewidth}
+    \centering
+%University logo
+    %\includegraphics[width=0.3\linewidth]{logo.pdf}
+    %\rule{0.4\linewidth}{0.15\linewidth}\par
+    \vspace{3cm}
+%Thesis title
+\centering
+\begin{align*}
+&\hspace{3cm}\includegraphics{logos/cost.png}
+\\
+\vspace{5cm}
+\\
+&\includegraphics{logos/action_logo.png}
+\end{align*}
+\vfill
+\end{minipage}
+\begin{minipage}{0.75\linewidth}
+\maketitle
+\end{minipage}
+\end{center}
+\clearpage
+
+\section{Introduction}
+In this document we report the research activity that the working group 2 on software and system has actively undertaken during the second year of the Cost Action IC1405. There has been an evident effort from WG members to integrate reversibility with \textit{behavioural types} (e.g., session types), with \textit{recovery mechanism} and \textit{mainstream languages} such as Earlang and Java.
+
+\section{Progress of the WG}
+
+\paragraph{Session Types.}
+In a series of work~\cite{DG16,CDG17}
+multiparty session types (aka global types) have been enriched with checkpoint labels on choices that mark points of the protocol where the computations may roll back. In~\cite{DG16}  a simple model in which rollback could be done any time after a participant had crossed the checkpointed choice. In~\cite{CDG17}
+ a more refined model is presented, in which  the programmer can define  points where  the computation may revert to a checkpointed label, and rollback has to be triggered by the participant that made the decision. 
+ 
+ Reversibility and monitored semantics for session types has been recently studied by Mezzina and  P\'erez~\cite{MezzinaP16a,MezzinaP16b}. In their works, they propose a \textit{monitor as memory} mechanism in which information about the monitor of a process can be used to enable its reversibility.
+ 
+ \paragraph{Earlang.}
+Recently, \cite{NPV16,LNPV17} have also introduced reversibility in the
+context of the functional and concurrent programming language Erlang
+\cite{AVW96}. In particular, a modular semantics for (a subset of)
+\emph{Core Erlang} \cite{CGJLNPV04} is first introduced in
+\cite{NPV16}, which is particularly appropiate to define a reversible
+extension. A reversible, \emph{uncontrolled} (according to the
+terminology in~\cite{LMT14}) semantics is then defined in
+\cite{LNPV17}. By defining an appropriate notion of concurrent
+transitions, the causal consistency of the reversible semantics is
+proved. Finally, adding control to the reversible semantics in the
+form of a \emph{rollback operator} allows the design of a method to
+undo the actions of a given process up to a given
+checkpoint---introduced by the programmer. In order to ensure
+causal consistency, the rollback action might be propagated to other,
+dependent processes.
+%
+In contrast to previous approaches to reversibility in
+$\mu$Oz~\cite{LLMS12,GLM14}, a main difference is that $\mu$Oz is not
+distributed: messages move atomically from sender to a chosen queue,
+and from the queue to the receiver. Each of the two actions is
+performed by a specific thread, hence the action is naturally part of
+the associated thread history. In our case, message delivery is not
+directly performed by a thread, and only potentially observed when the
+target thread performs the receive action (but not necessarily
+observed, e.g., if the message does not match the patterns in the
+receive). The definition of the notions of causality and concurrency
+in this setting is as a consequence much more tricky than in
+$\mu$Oz. This difficulty carries over to the definition of the history
+information that needs to be tracked, and to how this information is
+exploited in the reversible semantics.
+
+Recently~\cite{NY2017}, 
+a static analysis based on multiparty session types that
+ can efficiently compute a safe global state from which a system of interacting processes should be recovered, has been integrated with the Earlang recovery mechanism. From a global description of the program communication flow, given in multiparty protocol specification, 
+  causal dependencies between processes are extracted. This information is then used at runtime by a recovery mechanism, integrated in Erlang, to determine which process has to be terminated and which one has to be restarted upon a node failure. Experimental results indicate that the proosed framework outperforms a built-in static recovery strategy in Erlang when a part of the protocol can be safely recovered. 
+  
+  
+\bibliographystyle{plain}
+\bibliography{y2report.bib}
+
+
+\end{document}
+

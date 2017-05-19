@@ -1,0 +1,106 @@
+% \documentclass{article}
+% \begin{document}
+
+Recently, \cite{NPV16,LNPV17} have also introduced reversibility in the
+context of the functional and concurrent programming language Erlang
+\cite{AVW96}. In particular, a modular semantics for (a subset of)
+\emph{Core Erlang} \cite{CGJLNPV04} is first introduced in
+\cite{NPV16}, which is particularly appropiate to define a reversible
+extension. A reversible, \emph{uncontrolled} (according to the
+terminology in~\cite{LMT14}) semantics is then defined in
+\cite{LNPV17}. By defining an appropriate notion of concurrent
+transitions, the causal consistency of the reversible semantics is
+proved. Finally, adding control to the reversible semantics in the
+form of a \emph{rollback operator} allows the design of a method to
+undo the actions of a given process up to a given
+checkpoint---introduced by the programmer. In order to ensure
+causal consistency, the rollback action might be propagated to other,
+dependent processes.
+%
+In contrast to previous approaches to reversibility in
+$\mu$Oz~\cite{LLMS12,GLM14}, a main difference is that $\mu$Oz is not
+distributed: messages move atomically from sender to a chosen queue,
+and from the queue to the receiver. Each of the two actions is
+performed by a specific thread, hence the action is naturally part of
+the associated thread history. In our case, message delivery is not
+directly performed by a thread, and only potentially observed when the
+target thread performs the receive action (but not necessarily
+observed, e.g., if the message does not match the patterns in the
+receive). The definition of the notions of causality and concurrency
+in this setting is as a consequence much more tricky than in
+$\mu$Oz. This difficulty carries over to the definition of the history
+information that needs to be tracked, and to how this information is
+exploited in the reversible semantics.
+
+%\end{document}
+
+
+%%%%%%%%%%%%%%%
+% Bib items
+%%%%%%%%%%%%%%%
+
+@book{AVW96,
+  author = {Joe Armstrong and Robert Virding and Claes Wikstr{\"{o}}m and Mike Williams},
+  title     = "{Concurrent programming in Erlang (2nd edition)}",
+  publisher = {Prentice Hall},
+  year      = {1996},
+}
+
+@misc{CGJLNPV04,
+  author = {Richard Carlsson and Bj{\"{o}}rn Gustavsson and Erik Johansson and Thomas Lindgren and Sven-Olof Nystr\"om and Mikael Pettersson and Robert Virding},
+  title = "Core Erlang 1.0.3. Language specification",
+  note = "Available from \verb$https://www.it.uu.se/research/$ \verb$group/hipe/cerl/doc/core_erlang-1.0.3.pdf$",
+  year = "2004",
+}
+
+@inproceedings{GLM14,
+  author = {Elena Giachino and Ivan Lanese and Claudio Antares Mezzina},
+  title = {Causal-Consistent Reversible Debugging},
+  booktitle = {Proc.\ of the 17th International Conference on Fundamental Approaches to Software Engineering ({FASE} 2014)},
+  pages = {370--384},
+  year = {2014},
+  editor = {Stefania Gnesi and Arend Rensink},
+  series = {Lecture Notes in Computer Science},
+  volume = {8411},
+  publisher = {Springer},
+}
+
+@inproceedings{LLMS12,
+  author = {Michael Lienhardt and Ivan Lanese and Claudio Antares Mezzina and Jean{-}Bernard Stefani},
+  title = {A Reversible Abstract Machine and Its Space Overhead},
+  booktitle = {Proceedings of the Joint 14th {IFIP} {WG} Int'l Conf.\ on Formal Techniques for Distributed Systems ({FMOODS} 2012) and the 32nd {IFIP} {WG} 6.1 International Conference ({FORTE} 2012)},
+  pages = {1--17},
+  year = {2012},
+  editor = {Holger Giese and Grigore Rosu},
+  series = {Lecture Notes in Computer Science},
+  volume = {7273},
+  publisher = {Springer},
+}
+
+@article{LMT14,
+  author = {Ivan Lanese and Claudio Antares Mezzina and Francesco Tiezzi},
+  title = {Causal-Consistent Reversibility},
+  journal = {Bulletin of the {EATCS}},
+  volume = {114},
+  year = {2014},
+}
+
+@misc{LNPV17,
+  author = {Ivan Lanese and Naoki Nishida and Adri{\'{a}}n Palacios and Germ{\'{a}}n Vidal},
+  title = {A Theory of Reversibility for Erlang},
+  year = 2017,
+  note = "Submitted for publication",
+}
+
+@inproceedings{NPV16,
+  author = {Naoki Nishida and Adri{\'{a}}n Palacios and Germ{\'{a}}n Vidal},
+  title = {A Reversible Semantics for Erlang},
+  booktitle = {Proc.\ of the 26th International Symposium on Logic-Based Program Synthesis and Transformation, LOPSTR 2016},
+  year = 2017,
+  editor = {Manuel Hermenegildo and Pedro L\'opez-Garc\'{\i}a},
+  series = {Lecture Notes in Computer Science},
+  publisher = {Springer},
+  note = "To appear",
+}
+
+

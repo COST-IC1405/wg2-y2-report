@@ -1,0 +1,56 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: wg2-y2report.aux
+The style file: plain.bst
+Database file #1: y2report.bib.bib
+I was expecting a `,' or a `}'---line 81 of file y2report.bib.bib
+ :   
+ :   year = {2017}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--I'm ignoring MezzinaP16b's extra "year" field
+--line 131 of file y2report.bib.bib
+Warning--empty booktitle in CDG17
+Warning--empty year in CDG17
+You've used 12 entries,
+            2118 wiz_defined-function locations,
+            585 strings with 6701 characters,
+and the built_in function-call counts, 4837 in all, are:
+= -- 458
+> -- 255
+< -- 11
++ -- 99
+- -- 84
+* -- 335
+:= -- 764
+add.period$ -- 41
+call.type$ -- 12
+change.case$ -- 74
+chr.to.int$ -- 0
+cite$ -- 14
+duplicate$ -- 196
+empty$ -- 379
+format.name$ -- 84
+if$ -- 1049
+int.to.chr$ -- 0
+int.to.str$ -- 12
+missing$ -- 11
+newline$ -- 63
+num.names$ -- 30
+pop$ -- 103
+preamble$ -- 1
+purify$ -- 63
+quote$ -- 0
+skip$ -- 148
+stack$ -- 0
+substring$ -- 221
+swap$ -- 73
+text.length$ -- 11
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 46
+warning$ -- 2
+while$ -- 45
+width$ -- 14
+write$ -- 139
+(There was 1 error message)
