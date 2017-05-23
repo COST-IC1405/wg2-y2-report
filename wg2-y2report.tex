@@ -44,7 +44,7 @@
 \clearpage
 
 \section{Introduction}
-In this document we report the research activity that the working group 2 on software and system has actively undertaken during the second year of the Cost Action IC1405. There has been an evident effort from WG members to integrate reversibility with \textit{behavioural types} (e.g., session types), with \textit{recovery mechanism} and \textit{mainstream languages} such as Earlang and Java.
+In this document we report the research activity that the working group 2 on software and system has actively undertaken during the second year of the Cost Action IC1405. There has been an evident effort from WG members to integrate reversibility with \textit{behavioural types} (e.g., session types), with \textit{recovery mechanism} and \textit{mainstream languages} such as Earlang and the \textit{obejct-oriented} paradigm.
 
 \section{Progress of the WG}
 
@@ -92,7 +92,8 @@ a static analysis based on multiparty session types that
  can efficiently compute a safe global state from which a system of interacting processes should be recovered, has been integrated with the Earlang recovery mechanism. From a global description of the program communication flow, given in multiparty protocol specification, 
   causal dependencies between processes are extracted. This information is then used at runtime by a recovery mechanism, integrated in Erlang, to determine which process has to be terminated and which one has to be restarted upon a node failure. Experimental results indicate that the proosed framework outperforms a built-in static recovery strategy in Erlang when a part of the protocol can be safely recovered. 
   
-  
+\paragraph{Object oriented.}
+\input{oo}  
 \bibliographystyle{plain}
 \bibliography{y2report.bib}
 
