@@ -1,0 +1,27 @@
+%\documentclass{article}
+%
+%\begin{document}
+
+Initial ideas for the design and implementation of reversible
+object-oriented language have been presented, based on extending Janus
+with object-oriented concepts such as classes that encapsulate
+behavior and state, inheritance, virtual dispatching, as well as
+constructors.  Schultz and Axelsen showed that virtual dispatching can
+be seen as reversible decision mechanism that is easily translatable
+to a standard reversible programming model such as Janus, and argued
+that reversible management of state can be accomplished using
+reversible constructors~\cite{joule:2016}. These concepts were
+informally described and implemented by source-to-source translation
+from the reversible object-oriented language Joule to Janus. A similar
+design was adopted for the ROOP reversible object-oriented language,
+but fully formalized and implemented by compiling to the Pendulum
+reversible ISA~\cite{haulund:2016,roop:2017}. ROOP demonstrates how to
+generate low-level code implementing reversible vtable-based
+dispatching, and investigates the restrictions that must be imposed on
+reversible object-oriented programs to avoid run-time aliasing checks
+as found in Joule.
+
+%\bibliographystyle{plain}
+%\bibliography{cost-ic1405-wg2-oo-bib}
+%
+%\end{document}
