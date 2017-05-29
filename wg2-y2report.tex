@@ -44,9 +44,23 @@
 \clearpage
 
 \section{Introduction}
-In this document we report the research activity that the working group 2 on software and system has actively undertaken during the second year of the Cost Action IC1405. There has been an evident effort from WG members to integrate reversibility with \textit{behavioural types} (e.g., session types), with \textit{recovery mechanism} and \textit{mainstream languages} such as Earlang and the \textit{obejct-oriented} paradigm.
+In this document we report the research activity that the working group 2 on Software and System has actively undertaken during the second year of the Cost Action IC1405. According to the Action's Memorandum of Understanding~\cite{mou}  the WG2 mission is to provide linguistic abstractions, languages and tools to develop safer and more reliable applications. To do so, one of the main objective is to exploit reversibility to define actual reliability constructs and frameworks for programming reliable applications. This implies on one hand to integrate reversibility with mainstream programming languages and well know paradigms and on the other hand to understand what is the connection between reversibility and established techniques to achieve reliability such as
+ transactions and checkpointing. Lastly, WG2 topics also include reversibility in robotics and control theory.
+
+
 
 \section{Progress of the WG}
+In a previous document~\cite{wg2report}, we have reported  relevant literature for the WG2. In this document, instead, we report   the progress we have done into achieving the WG2 objectives, and in particular the integration of reversibility with respect to:
+
+\begin{itemize}
+	\item modularity aspects such as classes and object
+	\item type systems, with a special care on behavioural types (e.g., session types)
+	\item mainstream languages (e.g., Earlang)
+	\item recovery techniques in shared memory and massage passing concurrency models
+\end{itemize}
+
+\paragraph{Object oriented.}
+\input{oo}  
 
 \paragraph{Session Types.}
 In a series of work~\cite{DG16,CDG17}
@@ -87,14 +101,17 @@ $\mu$Oz. This difficulty carries over to the definition of the history
 information that needs to be tracked, and to how this information is
 exploited in the reversible semantics.
 
+
+
+\paragraph{Recovery.}
 Recently~\cite{NY2017}, 
 a static analysis based on multiparty session types that
- can efficiently compute a safe global state from which a system of interacting processes should be recovered, has been integrated with the Earlang recovery mechanism. From a global description of the program communication flow, given in multiparty protocol specification, 
-  causal dependencies between processes are extracted. This information is then used at runtime by a recovery mechanism, integrated in Erlang, to determine which process has to be terminated and which one has to be restarted upon a node failure. Experimental results indicate that the proosed framework outperforms a built-in static recovery strategy in Erlang when a part of the protocol can be safely recovered. 
-  
-\paragraph{Object oriented.}
-\input{oo}  
-\bibliographystyle{plain}
+ can efficiently compute a safe global state from which a system of interacting processes should be recovered, has been integrated with the Erlang recovery mechanism. From a global description of the program communication flow, given in multiparty protocol specification, 
+  causal dependencies between processes are extracted. This information is then used at runtime by a recovery mechanism, integrated in Erlang, to determine which process has to be terminated and which one has to be restarted upon a node failure. Experimental results indicate that the proposed framework outperforms a built-in static recovery strategy in Erlang when a part of the protocol can be safely recovered. 
+
+In~\cite{DBLP:journals/jlp/GiachinoLMT17} a rollback operator, 
+ based on the notion of causal-consistent reversibility, is defined for a language with shared memory. 
+  A rollback is  defined as the minimal causal-consistent sequence of backward steps able to undo a given action. \bibliographystyle{plain}
 \bibliography{y2report.bib}
 
 
