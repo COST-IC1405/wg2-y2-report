@@ -13,38 +13,16 @@
 
 %\title{COST Action IC1405\\Reversible computation\\ {\large extending horizons of computing \\[3ex] %\Large %\\ Working Group 2 - Software and Systems \\ Year 2 report}
 \title{COST Action IC1405\\Reversible Computation \\ Extending Horizons of Computing \\[3ex]
- Working Group 2 - Software and Systems \\[3ex] Year 2 report }
+ Working Group 2 - Software and Systems \\[3ex] Grant Period 2 report }
 %\author{Editors: %
 %Contributors:abs %
 %}
 \begin{document}
-\thispagestyle{empty}
-\begin{center}
-\begin{minipage}{0.75\linewidth}
-    \centering
-%University logo
-    %\includegraphics[width=0.3\linewidth]{logo.pdf}
-    %\rule{0.4\linewidth}{0.15\linewidth}\par
-    \vspace{3cm}
-%Thesis title
-\centering
-\begin{align*}
-&\hspace{3cm}\includegraphics{logos/cost.png}
-\\
-\vspace{5cm}
-\\
-&\includegraphics{logos/action_logo.png}
-\end{align*}
-\vfill
-\end{minipage}
-\begin{minipage}{0.75\linewidth}
-\maketitle
-\end{minipage}
-\end{center}
+\input{cover}
 \clearpage
 
 \section{Introduction}
-In this document we report the research activity that the working group 2 on Software and System has actively undertaken during the second year of the Cost Action IC1405. According to the Action's Memorandum of Understanding~\cite{mou}  the WG2 mission is to provide linguistic abstractions, languages and tools to develop safer and more reliable applications. To do so, one of the main objective is to exploit reversibility to define actual reliability constructs and frameworks for programming reliable applications. This implies on one hand to integrate reversibility with mainstream programming languages and well know paradigms and on the other hand to understand what is the connection between reversibility and established techniques to achieve reliability such as
+In this document we report the research activity that the Working Group 2 (WG2) on Software and System has actively undertaken during the second grant period of the Cost Action IC1405. According to the Action's Memorandum of Understanding~\cite{mou}  the WG2 mission is to provide linguistic abstractions, languages and tools to develop safer and more reliable applications. To do so, one of the main objective is to exploit reversibility to define actual reliability constructs and frameworks for programming reliable applications. This implies on one hand to integrate reversibility with mainstream programming languages and well know paradigms and on the other hand to understand what is the connection between reversibility and established techniques to achieve reliability such as
  transactions and checkpointing. Lastly, WG2 topics also include reversibility in robotics and control theory.
 
 
@@ -55,7 +33,7 @@ In a previous document~\cite{wg2report}, we have reported  relevant literature f
 \begin{itemize}
 	\item modularity aspects such as classes and object
 	\item type systems, with a special care on behavioural types (e.g., session types)
-	\item mainstream languages (e.g., Earlang)
+	\item mainstream languages (e.g., Erlang~\cite{AVW96})
 	\item recovery techniques in shared memory and massage passing concurrency models
 \end{itemize}
 
@@ -69,7 +47,7 @@ multiparty session types (aka global types) have been enriched with checkpoint l
  
  Reversibility and monitored semantics for session types has been recently studied by Mezzina and  P\'erez~\cite{MezzinaP16a,MezzinaP16b}. In their works, they propose a \textit{monitor as memory} mechanism in which information about the monitor of a process can be used to enable its reversibility.
  
- \paragraph{Earlang.}
+ \paragraph{Erlang.}
 Recently, \cite{NPV16,LNPV17} have also introduced reversibility in the
 context of the functional and concurrent programming language Erlang
 \cite{AVW96}. In particular, a modular semantics for (a subset of)
