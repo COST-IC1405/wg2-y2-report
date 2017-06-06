@@ -14,9 +14,16 @@
 %\title{COST Action IC1405\\Reversible computation\\ {\large extending horizons of computing \\[3ex] %\Large %\\ Working Group 2 - Software and Systems \\ Year 2 report}
 \title{COST Action IC1405\\Reversible Computation \\ Extending Horizons of Computing \\[3ex]
  Working Group 2 - Software and Systems \\[3ex] Grant Period 2 report }
-%\author{Editors: %
-%Contributors:abs %
-%}
+\author{\textbf{Editors}:\\ %
+Claudio Antares Mezzina and Rudolf Schlatte
+\\[3ex]
+\textit{Contributors}:\\ %Contributors: 
+Paola Giannini,
+Rumyana Neykova,
+Claudio Antares \\Mezzina,
+Ulrik Schultz,
+German Vidal
+}
 \begin{document}
 \input{cover}
 \clearpage
@@ -28,7 +35,7 @@ In this document we report the research activity that the Working Group 2 (WG2) 
 
 
 \section{Progress of the WG}
-In a previous document~\cite{wg2report}, we have reported  relevant literature for the WG2. In this document, instead, we report   the progress we have done into achieving the WG2 objectives, and in particular the integration of reversibility with respect to:
+In a previous document~\cite{wg2report}, we have reported  the relevant literature for the WG2. In this document, instead, we report   the progress we have done into achieving the WG2 objectives, and in particular the integration of reversibility with respect to:
 
 \begin{itemize}
 	\item modularity aspects such as classes and object
@@ -41,11 +48,11 @@ In a previous document~\cite{wg2report}, we have reported  relevant literature f
 \input{oo}  
 
 \paragraph{Session Types.}
-In a series of work~\cite{DG16,CDG17}
+In a series of works~\cite{DG16,CDG17}
 multiparty session types (aka global types) have been enriched with checkpoint labels on choices that mark points of the protocol where the computations may roll back. In~\cite{DG16}  a simple model in which rollback could be done any time after a participant had crossed the checkpointed choice. In~\cite{CDG17}
  a more refined model is presented, in which  the programmer can define  points where  the computation may revert to a checkpointed label, and rollback has to be triggered by the participant that made the decision. 
  
- Reversibility and monitored semantics for session types has been recently studied by Mezzina and  P\'erez~\cite{MezzinaP16a,MezzinaP16b}. In their works, they propose a \textit{monitor as memory} mechanism in which information about the monitor of a process can be used to enable its reversibility.
+ Reversibility and monitored semantics for session types has been recently studied by Mezzina and  P\'erez~\cite{MezzinaP16a,MezzinaP16b}. In their works, they propose a \textit{monitor as memory} mechanism in which information about the monitor of a process can be used to enable its reversibility. Moreover, by adding \textit{modalities} information at the level of session types, reversibility can be controlled.
  
  \paragraph{Erlang.}
 Recently, \cite{NPV16,LNPV17} have also introduced reversibility in the
